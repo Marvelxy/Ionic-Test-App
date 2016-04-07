@@ -1,0 +1,39 @@
+<ion-view view-title="Discover" class="discover-page">
+  <ion-content scroll="false">
+
+		<div class="item item-image">
+      <img ng-src="{{ currentSong.image_large }}">
+    </div>
+
+    <div class="item">
+      <h2>{{ user_email }} <span ng-hide="currentSong.loaded"><!--<i class="ion-loading-c"></i>--></span></h2>
+      <p>{{ currentSong.artist }}</p>
+    </div>
+
+		<button class="button button-block action-button" ng-class="{'button-positive': !form.signingUp, 'button-balanced': form.signingUp}" ng-click="testTestPage()">
+    	Test test page
+    </button>
+		
+    <div class="list card current-song" ng-class="{skipped: currentSong.rated == false, favorited: currentSong.rated == true}" ng-show="currentSong && !currentSong.hide">
+			
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="sendFeedback(false)">
+          <i class="icon ion-close"></i>
+          Skip
+        </a>
+        <a class="tab-item" ng-click="sendFeedback(true)">
+          <i class="icon ion-heart"></i>
+          Favorite
+        </a>
+      </div>
+      
+      
+			
+			<div class="img-lookahead">
+	      <img ng-src="{{ nextAlbumImg() }}" />
+	    </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>
